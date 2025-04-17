@@ -265,13 +265,17 @@ if ( ! class_exists( 'Custom_Typekit_Fonts_Render' ) ) :
 					'name' => $font['family'],
 					'slug' => $font['slug'] ?? explode(',', $font['fallback'])[0],
 				];
-				if(!empty($font['weight'])) {
+
+				if(!empty($font['variations'])) {
 					$font_definition['fontFace'] = [];
-					foreach($font['weights'] as $weight) {
-						$font_definition['fontFace'][] = [
-							'fontFamily' => $font['family'],
-							'weight' => $weight,
-						];
+					foreach($font['variations'] as $style => $weights) {
+						foreach($weights as $weight) {
+							$font_definition['fontFace'][] = [
+								'fontFamily' => $font['family'],
+								'fontStyle' => $style,
+								'fontWeight' => $weight,
+							];
+						}
 					}
 				}
 				
