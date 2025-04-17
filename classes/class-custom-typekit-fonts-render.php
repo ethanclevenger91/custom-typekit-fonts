@@ -252,7 +252,7 @@ if ( ! class_exists( 'Custom_Typekit_Fonts_Render' ) ) :
 				return $theme_json;
 			}
 			$new_data = [
-				'version'  => 2,
+				'version'  => 3,
 				'settings' => [
 					'typography' => [
 						'fontFamilies' => [],
